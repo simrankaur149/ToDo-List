@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Cards from "./Components/Cards";
+import { BrowserRouter, Routes,Route } from 'react-router-dom';
+import Home from "./Pages/Home";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import Services from "./Pages/Services";
+import Nav from "./Components/Nav";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+const App = ()=>{
+
+  
+
+  return(
+   
+   <>
+   
+    <BrowserRouter>
+    <Nav/> 
+    <Routes>
+      <Route path='/' element={<Home/>} />
+      <Route path='/About' element={<About/>} />
+      <Route path='/Contact' element={<Contact/>} />
+      <Route path='/Services' element={<Services/>} />
+    </Routes>
+    </BrowserRouter> 
+    
+
+  
+      <Cards
+      imageAlt = "https://images.unsplash.com/photo-1682319375705-5668951c16ce?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHx8"
+      title = "Heading"
+      para = "this is the first paragraph"
+      />
+    
+    
+    
+    </>
+    
+
+    
+  )
+
 }
 
-export default App;
+export default App
